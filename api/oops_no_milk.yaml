@@ -1,0 +1,3421 @@
+openapi: 3.0.4
+info:
+  title: BootstrApp.cloud
+  description: BootstrApp.cloud API Client
+  contact:
+    name: ProgramInterface.com
+    url: https://www.ProgramInterface.com
+    email: programinterface@programinterface.com
+  version: 0.0.1
+servers:
+  - url: https://api.fci.cloud
+  - url: https://api.inspirenet.cloud
+paths:
+  /app/api/Object/Entity/Filter:
+    post:
+      tags:
+        - Entity
+      description: Filter Entities
+      operationId: filter--Entity
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Entity--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Entity--response'
+  /app/api/Object/User/Filter:
+    post:
+      tags:
+        - User
+      description: Filter Users
+      operationId: filter--User
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--User--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--User--response'
+  /app/api/Object/Organization/Filter:
+    post:
+      tags:
+        - Organization
+      description: Filter Organizations
+      operationId: filter--Organization
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Organization--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Organization--response'
+  /app/api/Object/Account/Filter:
+    post:
+      tags:
+        - Account
+      description: Filter Account
+      operationId: filter--Account
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Account--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Account--response'
+  /app/api/Object/UserAdmin/Filter:
+    post:
+      tags:
+        - UserAdmin
+      description: Filter Admin User
+      operationId: filter--UserAdmin
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--UserAdmin--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--UserAdmin--response'
+  /app/api/Object/UserDesignAssociate/Filter:
+    post:
+      tags:
+        - UserDesignAssociate
+      description: Filter Design Associate
+      operationId: filter--UserDesignAssociate
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--UserDesignAssociate--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--UserDesignAssociate--response'
+  /app/api/Object/UserManager/Filter:
+    post:
+      tags:
+        - UserManager
+      description: Filter Managers
+      operationId: filter--UserManager
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--UserManager--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--UserManager--response'
+  /app/api/Object/app.oops_no_milk.Household/Filter:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: 'Filter A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+      operationId: filter--Household
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Household--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Household--response'
+  /app/api/Object/app.oops_no_milk.Household:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: Create Household
+      operationId: create--Household
+      requestBody:
+        description: Object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create--Household--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  '/app/api/Object/app.oops_no_milk.Household({objectId})':
+    patch:
+      tags:
+        - app.oops_no_milk
+      description: Update Household
+      operationId: update--Household
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Properties to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update--Household--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+    delete:
+      tags:
+        - app.oops_no_milk
+      description: Delete Household
+      operationId: delete--Household
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: fields
+          in: query
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Household-fields'
+        - name: If-Unmodified-Since
+          in: header
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Household'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  /app/api/Object/app.oops_no_milk.Item/Filter:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: 'Filter A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+      operationId: filter--Item
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Item--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Item--response'
+  /app/api/Object/app.oops_no_milk.Item:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: Create Item
+      operationId: create--Item
+      requestBody:
+        description: Object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create--Item--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  '/app/api/Object/app.oops_no_milk.Item({objectId})':
+    patch:
+      tags:
+        - app.oops_no_milk
+      description: Update Item
+      operationId: update--Item
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Properties to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update--Item--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+    delete:
+      tags:
+        - app.oops_no_milk
+      description: Delete Item
+      operationId: delete--Item
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: fields
+          in: query
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Item-fields'
+        - name: If-Unmodified-Since
+          in: header
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  /app/api/Object/app.oops_no_milk.Membership/Filter:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: Filter Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+      operationId: filter--Membership
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Membership--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Membership--response'
+  /app/api/Object/app.oops_no_milk.Membership:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: Create Membership
+      operationId: create--Membership
+      requestBody:
+        description: Object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create--Membership--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  '/app/api/Object/app.oops_no_milk.Membership({objectId})':
+    patch:
+      tags:
+        - app.oops_no_milk
+      description: Update Membership
+      operationId: update--Membership
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Properties to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update--Membership--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+    delete:
+      tags:
+        - app.oops_no_milk
+      description: Delete Membership
+      operationId: delete--Membership
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: fields
+          in: query
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Membership-fields'
+        - name: If-Unmodified-Since
+          in: header
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  /app/api/Object/app.oops_no_milk.Reaction/Filter:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: Filter An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+      operationId: filter--Reaction
+      requestBody:
+        description: Filter Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filter--Reaction--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filter--Reaction--response'
+  /app/api/Object/app.oops_no_milk.Reaction:
+    post:
+      tags:
+        - app.oops_no_milk
+      description: Create Reaction
+      operationId: create--Reaction
+      requestBody:
+        description: Object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create--Reaction--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+  '/app/api/Object/app.oops_no_milk.Reaction({objectId})':
+    patch:
+      tags:
+        - app.oops_no_milk
+      description: Update Reaction
+      operationId: update--Reaction
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Properties to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update--Reaction--request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataFormActionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+    delete:
+      tags:
+        - app.oops_no_milk
+      description: Delete Reaction
+      operationId: delete--Reaction
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: fields
+          in: query
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Reaction-fields'
+        - name: If-Unmodified-Since
+          in: header
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reaction'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-pi-response-error'
+components:
+  schemas:
+    DataFormActionResponse:
+      title: DataForm Action Response
+      required:
+        - Action
+        - Success
+      type: object
+      properties:
+        Action:
+          title: Action
+          type: string
+          description: Requested Action
+        Ids:
+          title: Object Ids
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Object Ids affected by action
+        Message:
+          title: Message
+          type: string
+          description: Result summary or error message
+        NextUrl:
+          title: NextUrl
+          type: string
+          description: Suggested Next Url
+        RunId:
+          title: Run Id
+          type: string
+        Success:
+          title: 'Operation successful '
+          type: boolean
+          description: 'Whether the operation successful '
+      description: DataForm Action Response
+    Entity:
+      title: Entity
+      required:
+        - AccountId
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        _id:
+          title: Id
+          type: string
+          format: uuid
+        _t:
+          title: Type
+          enum:
+            - Account
+            - Organization
+            - User
+          type: string
+          x-enum-varnames:
+            - ACCOUNT
+            - ORGANIZATION
+            - USER
+          x-enum-descriptions:
+            - Account
+            - Organization
+            - User
+        email:
+          title: Email
+          type: string
+          format: email
+        phone:
+          title: Phone
+          type: string
+          format: phone
+        timeZone:
+          title: Time Zone
+          type: string
+        organizationId:
+          title: Organization
+          type: string
+        organizationId|Name:
+          title: OrganizationId|Name
+          type: string
+        isActive:
+          title: Active
+          type: boolean
+        FlowId:
+          title: FlowId
+          type: string
+        FlowId|Name:
+          title: FlowId|Name
+          type: string
+        ObjectStatusId:
+          title: Status
+          type: string
+        ObjectStatusId|Name:
+          title: ObjectStatusId|Name
+          type: string
+        CreatedOn:
+          title: Created
+          type: string
+          format: date-time
+        LastModifiedOn:
+          title: Last Modified
+          type: string
+          format: date-time
+        Identities:
+          title: Identities
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityIdentity'
+      description: Entity
+      discriminator:
+        propertyName: _t
+        mapping:
+          Organization: '#/components/schemas/Organization'
+          User: '#/components/schemas/User'
+          Account: '#/components/schemas/Account'
+    Entity-indexed-fields:
+      title: 'Entity: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - CreatedOn
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+      type: string
+      description: Filterable fields for Entity
+    Entity-fields:
+      title: 'Entity: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - CreatedOn
+        - description
+        - email
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+        - phone
+        - timeZone
+      type: string
+      description: Fields for Entity
+    Entity-condition:
+      title: 'Entity: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Entity-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Entity
+    filter--Entity--request:
+      title: 'Entity: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Entity-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Entity
+    filter--Entity--response:
+      title: 'Entity: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Entity'
+      description: Response Body to filter Entity
+    User:
+      title: User
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+      properties:
+        role:
+          title: Role
+          enum:
+            - Admin
+            - Manager
+            - Profile
+            - User
+          type: string
+          x-enum-varnames:
+            - ADMIN
+            - MANAGER
+            - PROFILE
+            - USER
+          x-enum-descriptions:
+            - Admin
+            - Manager
+            - Limited Profile
+            - User
+        Identities|Salesforce|Main:
+          title: Salesforce User
+        Identities|Salesforce|ServiceResource:
+          title: Salesforce Service Resource
+        AppProfiles|PI:
+          title: PI Profile
+          type: string
+        AppProfiles|PI|Name:
+          title: AppProfiles|PI|Name
+          type: string
+        AppProfiles|PLM:
+          title: PLM Profile
+          type: string
+        AppProfiles|PLM|Name:
+          title: AppProfiles|PLM|Name
+          type: string
+        AppProfiles|OTG:
+          title: OTG Profile
+          type: string
+        AppProfiles|OTG|Name:
+          title: AppProfiles|OTG|Name
+          type: string
+        AppProfiles:
+          title: Profiles
+          type: object
+        Messages:
+          title: Messages
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        organization:
+          $ref: '#/components/schemas/Organization'
+      description: User
+      discriminator:
+        propertyName: role
+        mapping:
+          Manager: '#/components/schemas/UserManager'
+          Admin: '#/components/schemas/UserAdmin'
+          User: '#/components/schemas/UserDesignAssociate'
+    User-indexed-fields:
+      title: 'User: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - CreatedOn
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+        - role
+      type: string
+      description: Filterable fields for User
+    User-fields:
+      title: 'User: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - AppProfiles|OTG
+        - AppProfiles|PI
+        - AppProfiles|PLM
+        - CreatedOn
+        - description
+        - email
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - Identities|Salesforce|Main
+        - Identities|Salesforce|ServiceResource
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organization_Identities
+        - organization_Identities__id
+        - organization_Identities_ExternalId
+        - organization_Identities_IdentityProviderId
+        - organization_Identities_Name
+        - organization_PPATargets
+        - organization_PPATargets_Carpet
+        - organization_PPATargets_CeramicTile
+        - organization_PPATargets_Hardwood
+        - organization_PPATargets_Laminate
+        - organization_PPATargets_Message
+        - organization_PPATargets_NaturalStone
+        - organization_PPATargets_Vinyl
+        - organization_Promos
+        - organization_Promos_FallIntoFloorfest
+        - organization_Promos_Message
+        - organizationId
+        - phone
+        - role
+        - timeZone
+      type: string
+      description: Fields for User
+    User-condition:
+      title: 'User: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/User-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for User
+    filter--User--request:
+      title: 'User: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/User-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/User-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/User-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter User
+    filter--User--response:
+      title: 'User: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+      description: Response Body to filter User
+    Organization:
+      title: Organization
+      required:
+        - Address
+        - City
+        - State
+        - PostalCode
+        - Country
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+      properties:
+        Address:
+          title: Address
+          type: string
+        Address2:
+          title: Suite/Unit
+          type: string
+        City:
+          title: City
+          type: string
+        State:
+          title: State
+          type: string
+        PostalCode:
+          title: Postal Code
+          type: string
+        Country:
+          title: Country
+          type: string
+        Location:
+          title: Location (Map)
+        LocationDistance:
+          title: Distance to Location
+        BusinessPlanRemoteFileId:
+          title: Business Plan 2025
+          type: string
+        BusinessPlanRemoteFileId|Name:
+          title: BusinessPlanRemoteFileId|Name
+          type: string
+        FCI|SFTerritoryId:
+          title: Sf Organization
+          type: string
+        FCI|SFTerritoryId|Name:
+          title: FCI|SFTerritoryId|Name
+          type: string
+        branchNumber:
+          title: 'Branch #'
+          type: string
+        FCI|IsPPA:
+          title: PPA Participant
+          type: boolean
+        FCI|IsPPL:
+          title: PPL
+          type: boolean
+        Properties|LuminOptOut:
+          title: Lumin Opt Out
+          type: boolean
+        Properties|ConfirmationEmailsOptOut:
+          title: Confirmation Emails Opt Out
+          type: boolean
+        Properties|UnlayerTemplateId:
+          title: Appointment Confirmation Email Template
+          type: string
+        Properties|UnlayerTemplateId|Name:
+          title: Properties|UnlayerTemplateId|Name
+          type: string
+        Properties|LiftifyOptIn:
+          title: Produced Customers to Liftify
+          type: boolean
+        Properties|HomeAdvisorId:
+          title: HomeAdvisor Id
+          type: string
+        Properties|TerritoryByDistanceOptOut:
+          title: Territory By Distance Opt Out
+          type: boolean
+        Properties|SendSchedulerSMS:
+          title: Send SMS with scheduling link
+          type: boolean
+        CallcenterInfo:
+          title: Callcenter Info
+          type: string
+        WhoIsFCI:
+          title: Who Is FCI?
+          type: string
+        LocationInformation:
+          title: Location Info
+          type: string
+        Tags:
+          title: Tags
+          type: array
+          items:
+            type: string
+        Identities|Salesforce|Main:
+          title: Salesforce Service Territory
+        Identities|CompanyCam|CompanyId:
+          title: CompanyCam Company Id
+        Identities|Quickbooks|CompanyId:
+          title: Quickbooks Company Id
+        PPATargeting:
+          title: PPA Leads
+          type: boolean
+        PPATargets:
+          $ref: '#/components/schemas/FCIOrganizationPPATargets'
+        Promos:
+          $ref: '#/components/schemas/OrganizationPromos'
+        PrimaryUserId:
+          title: Primary User
+          type: string
+        PrimaryUserId|Name:
+          title: PrimaryUserId|Name
+          type: string
+        MarketingInfo:
+          $ref: '#/components/schemas/MarketingInfo'
+        OrganizationNote:
+          title: Notes
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationNote'
+        Lead:
+          title: Leads
+          type: array
+          items:
+            $ref: '#/components/schemas/Lead'
+        User:
+          title: Users
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        ZeeTerritory:
+          title: Territory
+          type: array
+          items:
+            $ref: '#/components/schemas/ZeeTerritory'
+      description: Organization
+    Organization-indexed-fields:
+      title: 'Organization: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - branchNumber
+        - CreatedOn
+        - FCI|IsPPA
+        - FCI|SFTerritoryId
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - Location
+        - LocationDistance
+        - name
+        - ObjectStatusId
+        - organizationId
+        - PPATargeting
+        - PrimaryUserId
+        - Promos_FallIntoFloorfest
+        - Properties|ConfirmationEmailsOptOut
+        - Properties|HomeAdvisorId
+        - Properties|LiftifyOptIn
+        - Properties|TerritoryByDistanceOptOut
+        - Tags
+      type: string
+      description: Filterable fields for Organization
+    Organization-fields:
+      title: 'Organization: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - Address
+        - Address2
+        - branchNumber
+        - BusinessPlanRemoteFileId
+        - CallcenterInfo
+        - City
+        - Country
+        - CreatedOn
+        - description
+        - email
+        - FCI|IsPPA
+        - FCI|IsPPL
+        - FCI|SFTerritoryId
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - Identities|CompanyCam|CompanyId
+        - Identities|Quickbooks|CompanyId
+        - Identities|Salesforce|Main
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - Location
+        - LocationDistance
+        - LocationInformation
+        - MarketingInfo_BusinessHours
+        - MarketingInfo_BusinessHours_Friday
+        - MarketingInfo_BusinessHours_Friday_End
+        - MarketingInfo_BusinessHours_Friday_IsClosed
+        - MarketingInfo_BusinessHours_Friday_Start
+        - MarketingInfo_BusinessHours_Monday
+        - MarketingInfo_BusinessHours_Monday_End
+        - MarketingInfo_BusinessHours_Monday_IsClosed
+        - MarketingInfo_BusinessHours_Monday_Start
+        - MarketingInfo_BusinessHours_OptOut
+        - MarketingInfo_BusinessHours_Saturday
+        - MarketingInfo_BusinessHours_Saturday_End
+        - MarketingInfo_BusinessHours_Saturday_IsClosed
+        - MarketingInfo_BusinessHours_Saturday_Start
+        - MarketingInfo_BusinessHours_Sunday
+        - MarketingInfo_BusinessHours_Sunday_End
+        - MarketingInfo_BusinessHours_Sunday_IsClosed
+        - MarketingInfo_BusinessHours_Sunday_Start
+        - MarketingInfo_BusinessHours_Thursday
+        - MarketingInfo_BusinessHours_Thursday_End
+        - MarketingInfo_BusinessHours_Thursday_IsClosed
+        - MarketingInfo_BusinessHours_Thursday_Start
+        - MarketingInfo_BusinessHours_Tuesday
+        - MarketingInfo_BusinessHours_Tuesday_End
+        - MarketingInfo_BusinessHours_Tuesday_IsClosed
+        - MarketingInfo_BusinessHours_Tuesday_Start
+        - MarketingInfo_BusinessHours_Wednesday
+        - MarketingInfo_BusinessHours_Wednesday_End
+        - MarketingInfo_BusinessHours_Wednesday_IsClosed
+        - MarketingInfo_BusinessHours_Wednesday_Start
+        - MarketingInfo_MarketingContactIds
+        - MarketingInfo_MarketingContactIds_EDDM
+        - MarketingInfo_MarketingContactIds_SEM
+        - MarketingInfo_MarketingContactIds_SEO
+        - MarketingInfo_ProductCategories
+        - MarketingInfo_ProductCategories_Carpet
+        - MarketingInfo_ProductCategories_Laminate
+        - MarketingInfo_ProductCategories_Tile
+        - MarketingInfo_ProductCategories_Vinyl
+        - MarketingInfo_ProductCategories_Wood
+        - name
+        - ObjectStatusId
+        - organizationId
+        - phone
+        - PostalCode
+        - PPATargeting
+        - PPATargets
+        - PPATargets_Carpet
+        - PPATargets_CeramicTile
+        - PPATargets_Hardwood
+        - PPATargets_Laminate
+        - PPATargets_Message
+        - PPATargets_NaturalStone
+        - PPATargets_Vinyl
+        - PrimaryUserId
+        - Promos
+        - Promos_FallIntoFloorfest
+        - Promos_Message
+        - Properties|ConfirmationEmailsOptOut
+        - Properties|HomeAdvisorId
+        - Properties|LiftifyOptIn
+        - Properties|LuminOptOut
+        - Properties|SendSchedulerSMS
+        - Properties|TerritoryByDistanceOptOut
+        - Properties|UnlayerTemplateId
+        - State
+        - Tags
+        - timeZone
+        - WhoIsFCI
+      type: string
+      description: Fields for Organization
+    Organization-condition:
+      title: 'Organization: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Organization-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Organization
+    filter--Organization--request:
+      title: 'Organization: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Organization-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Organization
+    filter--Organization--response:
+      title: 'Organization: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Organization'
+      description: Response Body to filter Organization
+    Account:
+      title: Account
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+      properties:
+        _83bb62dd:
+          type: object
+      description: Account
+    Account-indexed-fields:
+      title: 'Account: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - CreatedOn
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+      type: string
+      description: Filterable fields for Account
+    Account-fields:
+      title: 'Account: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - CreatedOn
+        - description
+        - email
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+        - phone
+        - timeZone
+      type: string
+      description: Fields for Account
+    Account-condition:
+      title: 'Account: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Account-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Account
+    filter--Account--request:
+      title: 'Account: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Account-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Account-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Account-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Account
+    filter--Account--response:
+      title: 'Account: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Account'
+      description: Response Body to filter Account
+    UserAdmin:
+      title: Admin User
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/User'
+      properties:
+        _cbf8b46b:
+          type: object
+        Messages:
+          title: Messages
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        organization:
+          $ref: '#/components/schemas/Organization'
+      description: Admin User
+    UserAdmin-indexed-fields:
+      title: 'Admin User: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - CreatedOn
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+        - role
+      type: string
+      description: Filterable fields for Admin User
+    UserAdmin-fields:
+      title: 'Admin User: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - AppProfiles|OTG
+        - AppProfiles|PI
+        - AppProfiles|PLM
+        - CreatedOn
+        - description
+        - email
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - Identities|Salesforce|Main
+        - Identities|Salesforce|ServiceResource
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organization_Identities
+        - organization_Identities__id
+        - organization_Identities_ExternalId
+        - organization_Identities_IdentityProviderId
+        - organization_Identities_Name
+        - organization_PPATargets
+        - organization_PPATargets_Carpet
+        - organization_PPATargets_CeramicTile
+        - organization_PPATargets_Hardwood
+        - organization_PPATargets_Laminate
+        - organization_PPATargets_Message
+        - organization_PPATargets_NaturalStone
+        - organization_PPATargets_Vinyl
+        - organization_Promos
+        - organization_Promos_FallIntoFloorfest
+        - organization_Promos_Message
+        - organizationId
+        - phone
+        - role
+        - timeZone
+      type: string
+      description: Fields for Admin User
+    UserAdmin-condition:
+      title: 'Admin User: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/UserAdmin-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Admin User
+    filter--UserAdmin--request:
+      title: 'Admin User: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/UserAdmin-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAdmin-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAdmin-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Admin User
+    filter--UserAdmin--response:
+      title: 'Admin User: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/UserAdmin'
+      description: Response Body to filter Admin User
+    UserDesignAssociate:
+      title: Design Associate
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/User'
+      properties:
+        AppProfiles|InspireNetMobile_ProductSelector:
+          title: IM Profile
+          enum:
+            - 134ddab0-da6c-4f1d-8de5-362db0b50324
+            - e89f08d4-db31-46ff-a451-15c78b391e3a
+          type: string
+          x-enum-varnames:
+            - _134DDAB0DA6C4F1D8DE5362DB0B50324
+            - E89F08D4DB3146FFA45115C78B391E3A
+          x-enum-descriptions:
+            - Default
+            - Corporate Product Selector
+        Messages:
+          title: Messages
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        organization:
+          $ref: '#/components/schemas/Organization'
+      description: Design Associate
+    UserDesignAssociate-indexed-fields:
+      title: 'Design Associate: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - CreatedOn
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organizationId
+        - role
+      type: string
+      description: Filterable fields for Design Associate
+    UserDesignAssociate-fields:
+      title: 'Design Associate: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - AppProfiles|InspireNetMobile_ProductSelector
+        - AppProfiles|OTG
+        - AppProfiles|PI
+        - AppProfiles|PLM
+        - CreatedOn
+        - description
+        - email
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - Identities|Salesforce|Main
+        - Identities|Salesforce|ServiceResource
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organization_Identities
+        - organization_Identities__id
+        - organization_Identities_ExternalId
+        - organization_Identities_IdentityProviderId
+        - organization_Identities_Name
+        - organization_PPATargets
+        - organization_PPATargets_Carpet
+        - organization_PPATargets_CeramicTile
+        - organization_PPATargets_Hardwood
+        - organization_PPATargets_Laminate
+        - organization_PPATargets_Message
+        - organization_PPATargets_NaturalStone
+        - organization_PPATargets_Vinyl
+        - organization_Promos
+        - organization_Promos_FallIntoFloorfest
+        - organization_Promos_Message
+        - organizationId
+        - phone
+        - role
+        - timeZone
+      type: string
+      description: Fields for Design Associate
+    UserDesignAssociate-condition:
+      title: 'Design Associate: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/UserDesignAssociate-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Design Associate
+    filter--UserDesignAssociate--request:
+      title: 'Design Associate: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/UserDesignAssociate-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDesignAssociate-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDesignAssociate-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Design Associate
+    filter--UserDesignAssociate--response:
+      title: 'Design Associate: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/UserDesignAssociate'
+      description: Response Body to filter Design Associate
+    UserManager:
+      title: Manager
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/User'
+      properties:
+        AppProfiles|InspireNetMobile_ProductSelector:
+          title: IM Profile
+          enum:
+            - 134ddab0-da6c-4f1d-8de5-362db0b50324
+            - e89f08d4-db31-46ff-a451-15c78b391e3a
+          type: string
+          x-enum-varnames:
+            - _134DDAB0DA6C4F1D8DE5362DB0B50324
+            - E89F08D4DB3146FFA45115C78B391E3A
+          x-enum-descriptions:
+            - IM Default
+            - IM Corporate Product Selector
+        Messages:
+          title: Messages
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        organization:
+          $ref: '#/components/schemas/Organization'
+      description: Manager
+    UserManager-indexed-fields:
+      title: 'Manager: Filterable Fields'
+      enum:
+        - _id
+        - _t
+        - '#text'
+        - AccountId
+        - CreatedOn
+        - FlowId
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - isActive
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - OrganizationId
+        - role
+      type: string
+      description: Filterable fields for Manager
+    UserManager-fields:
+      title: 'Manager: Fields'
+      enum:
+        - _id
+        - _t
+        - AccountId
+        - AppProfiles|InspireNetMobile_ProductSelector
+        - AppProfiles|OTG
+        - AppProfiles|PI
+        - AppProfiles|PLM
+        - CreatedOn
+        - description
+        - email
+        - FlowId
+        - Identities
+        - Identities__id
+        - Identities_ExternalId
+        - Identities_IdentityProviderId
+        - Identities_Name
+        - Identities|Salesforce|Main
+        - Identities|Salesforce|ServiceResource
+        - isActive
+        - LastActor
+        - LastModifiedOn
+        - name
+        - ObjectStatusId
+        - organization_Identities
+        - organization_Identities__id
+        - organization_Identities_ExternalId
+        - organization_Identities_IdentityProviderId
+        - organization_Identities_Name
+        - organization_PPATargets
+        - organization_PPATargets_Carpet
+        - organization_PPATargets_CeramicTile
+        - organization_PPATargets_Hardwood
+        - organization_PPATargets_Laminate
+        - organization_PPATargets_Message
+        - organization_PPATargets_NaturalStone
+        - organization_PPATargets_Vinyl
+        - organization_Promos
+        - organization_Promos_FallIntoFloorfest
+        - organization_Promos_Message
+        - OrganizationId
+        - phone
+        - role
+        - timeZone
+      type: string
+      description: Fields for Manager
+    UserManager-condition:
+      title: 'Manager: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/UserManager-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Manager
+    filter--UserManager--request:
+      title: 'Manager: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/UserManager-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/UserManager-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/UserManager-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Manager
+    filter--UserManager--response:
+      title: 'Manager: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/UserManager'
+      description: Response Body to filter Manager
+    api-pi-response-error:
+      title: API Error
+      type: object
+      properties:
+        statusCode:
+          title: Http Status Code
+          maximum: 600
+          minimum: 300
+          type: integer
+          description: HTTP Response Status Code
+        message:
+          title: Error Message
+          type: string
+          description: API Error Message
+        success:
+          title: Success
+          type: boolean
+          description: Whether the request was successful. Always false
+          default: false
+      description: 'System: Response Body on API Error'
+    api-pi-condition-operator:
+      title: Condition Operator
+      enum:
+        - Eq
+        - Gt
+        - Gte
+        - In
+        - Lt
+        - Lte
+        - Ne
+        - Nin
+      type: string
+      description: 'System: Condition Operator'
+      x-enum-varnames:
+        - Equal
+        - GreaterThan
+        - GreaterThanOrEqual
+        - In
+        - LessThan
+        - LessThanOrEqual
+        - NotEqual
+        - NotIn
+      x-enum-descriptions:
+        - Equal
+        - Greater Than
+        - Greater Than Or Equal
+        - In
+        - Less Than
+        - Less Than Or Equal
+        - Not Equal
+        - Not In
+    Household:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+      type: object
+      properties:
+        _id:
+          title: Household ID
+          type: string
+          description: Server-assigned UUID identifying this household.
+          format: uuid
+        name:
+          title: Household name
+          type: string
+          description: 'Display name shown in the picker — e.g. ''Apt 4B'', ''The Garcias'', ''Roommate Hellscape''.'
+        ownerId:
+          title: Owner user ID
+          type: string
+          description: UUID of the User who created the household. The owner has implicit admin rights enforced by the platform's group authorization.
+          format: uuid
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Short shareable code (8-12 chars) other users redeem via the joinHousehold action to become members. Unique within the app.
+        createdAt:
+          title: Created at
+          type: string
+          description: ISO-8601 timestamp recorded when the household was created.
+          format: date-time
+      description: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    update--Household--request:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Update Body'
+      type: object
+      properties:
+        _id:
+          title: Household ID
+          type: string
+          description: Server-assigned UUID identifying this household.
+          format: uuid
+        name:
+          title: Household name
+          type: string
+          description: 'Display name shown in the picker — e.g. ''Apt 4B'', ''The Garcias'', ''Roommate Hellscape''.'
+        ownerId:
+          title: Owner user ID
+          type: string
+          description: UUID of the User who created the household. The owner has implicit admin rights enforced by the platform's group authorization.
+          format: uuid
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Short shareable code (8-12 chars) other users redeem via the joinHousehold action to become members. Unique within the app.
+        createdAt:
+          title: Created at
+          type: string
+          description: ISO-8601 timestamp recorded when the household was created.
+          format: date-time
+      description: 'Request Body to Update A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    create--Household--request:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Create Body'
+      required:
+        - name
+        - ownerId
+        - inviteCode
+        - createdAt
+      type: object
+      properties:
+        _id:
+          title: Household ID
+          type: string
+          description: Server-assigned UUID identifying this household.
+          format: uuid
+        name:
+          title: Household name
+          type: string
+          description: 'Display name shown in the picker — e.g. ''Apt 4B'', ''The Garcias'', ''Roommate Hellscape''.'
+        ownerId:
+          title: Owner user ID
+          type: string
+          description: UUID of the User who created the household. The owner has implicit admin rights enforced by the platform's group authorization.
+          format: uuid
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Short shareable code (8-12 chars) other users redeem via the joinHousehold action to become members. Unique within the app.
+        createdAt:
+          title: Created at
+          type: string
+          description: ISO-8601 timestamp recorded when the household was created.
+          format: date-time
+      description: 'Request Body to Create A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    Household-indexed-fields:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Filterable Fields'
+      enum:
+        - _id
+        - inviteCode
+        - ownerId
+      type: string
+      description: 'Filterable fields for A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    Household-fields:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Fields'
+      enum:
+        - _id
+        - createdAt
+        - inviteCode
+        - name
+        - ownerId
+      type: string
+      description: 'Fields for A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    Household-condition:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Household-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: 'Field Condition for A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    filter--Household--request:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Household-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Household-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Household-condition'
+          description: Conditions to be used to filter objects
+      description: 'Request Body to filter A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    filter--Household--response:
+      title: 'A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Household'
+      description: 'Response Body to filter A shared apartment, family, or friend group co-managing a grocery list. Holds the invite code other users redeem to join, and is the parent of every Item and Membership.'
+    Item:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+      type: object
+      properties:
+        _id:
+          title: Item ID
+          type: string
+          description: Server-assigned UUID identifying this item.
+          format: uuid
+        householdId:
+          title: Household ID
+          type: string
+          description: Reference to the Household this item belongs to.
+          format: uuid
+        name:
+          title: Item name
+          type: string
+          description: 'Free-text name of the thing — ''milk'', ''toilet paper (the good kind)'', ''dog food''.'
+        section:
+          title: Section
+          enum:
+            - baby
+            - bakery
+            - beverages
+            - dairy_eggs
+            - frozen
+            - household
+            - meat_seafood
+            - other
+            - pantry
+            - personal_care
+            - pet
+            - produce
+            - snacks
+          type: string
+          description: 'Aisle/section the item belongs to, drawn from a fixed seed list. Drives UI grouping and section emoji rendering.'
+          x-enum-varnames:
+            - BABY
+            - BAKERY
+            - BEVERAGES
+            - DAIRY__EGGS
+            - FROZEN
+            - HOUSEHOLD
+            - MEAT__SEAFOOD
+            - OTHER
+            - PANTRY
+            - PERSONAL__CARE
+            - PET
+            - PRODUCE
+            - SNACKS
+          x-enum-descriptions:
+            - baby
+            - bakery
+            - beverages
+            - dairy_eggs
+            - frozen
+            - household
+            - meat_seafood
+            - other
+            - pantry
+            - personal_care
+            - pet
+            - produce
+            - snacks
+        urgency:
+          title: Urgency
+          enum:
+            - chill
+            - out_of_milk
+            - soon
+          type: string
+          description: 'How badly the household needs this. ''chill'' = nice to have, ''soon'' = grab on the next trip, ''out_of_milk'' = drop everything (the brand-tier crisis).'
+          x-enum-varnames:
+            - CHILL
+            - OUT__OF__MILK
+            - SOON
+          x-enum-descriptions:
+            - chill
+            - out_of_milk
+            - soon
+        status:
+          title: Status
+          enum:
+            - open
+            - purchased
+          type: string
+          description: Lifecycle status. 'open' means still needed; 'purchased' means someone has bought it. Set by markPurchased.
+          x-enum-varnames:
+            - OPEN
+            - PURCHASED
+          x-enum-descriptions:
+            - open
+            - purchased
+        notes:
+          title: Notes
+          type: string
+          description: 'Optional free-text notes from the adder — brand preference, quantity, etc.'
+        addedById:
+          title: Added by user ID
+          type: string
+          description: UUID of the User who added the item.
+          format: uuid
+        addedAt:
+          title: Added at
+          type: string
+          description: ISO-8601 timestamp recorded when the item was added.
+          format: date-time
+        purchasedById:
+          title: Purchased by user ID
+          type: string
+          description: UUID of the User who marked the item purchased. Null/absent until the item is purchased.
+          format: uuid
+        purchasedAt:
+          title: Purchased at
+          type: string
+          description: ISO-8601 timestamp recorded when the item was marked purchased. Null/absent while open.
+          format: date-time
+        purchasePriceCents:
+          title: Purchase price (cents)
+          type: integer
+          description: Optional purchase price in cents recorded by the buyer. Null/absent if not provided.
+      description: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    update--Item--request:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Update Body'
+      type: object
+      properties:
+        _id:
+          title: Item ID
+          type: string
+          description: Server-assigned UUID identifying this item.
+          format: uuid
+        householdId:
+          title: Household ID
+          type: string
+          description: Reference to the Household this item belongs to.
+          format: uuid
+        name:
+          title: Item name
+          type: string
+          description: 'Free-text name of the thing — ''milk'', ''toilet paper (the good kind)'', ''dog food''.'
+        section:
+          title: Section
+          enum:
+            - baby
+            - bakery
+            - beverages
+            - dairy_eggs
+            - frozen
+            - household
+            - meat_seafood
+            - other
+            - pantry
+            - personal_care
+            - pet
+            - produce
+            - snacks
+          type: string
+          description: 'Aisle/section the item belongs to, drawn from a fixed seed list. Drives UI grouping and section emoji rendering.'
+          x-enum-varnames:
+            - BABY
+            - BAKERY
+            - BEVERAGES
+            - DAIRY__EGGS
+            - FROZEN
+            - HOUSEHOLD
+            - MEAT__SEAFOOD
+            - OTHER
+            - PANTRY
+            - PERSONAL__CARE
+            - PET
+            - PRODUCE
+            - SNACKS
+          x-enum-descriptions:
+            - baby
+            - bakery
+            - beverages
+            - dairy_eggs
+            - frozen
+            - household
+            - meat_seafood
+            - other
+            - pantry
+            - personal_care
+            - pet
+            - produce
+            - snacks
+        urgency:
+          title: Urgency
+          enum:
+            - chill
+            - out_of_milk
+            - soon
+          type: string
+          description: 'How badly the household needs this. ''chill'' = nice to have, ''soon'' = grab on the next trip, ''out_of_milk'' = drop everything (the brand-tier crisis).'
+          x-enum-varnames:
+            - CHILL
+            - OUT__OF__MILK
+            - SOON
+          x-enum-descriptions:
+            - chill
+            - out_of_milk
+            - soon
+        status:
+          title: Status
+          enum:
+            - open
+            - purchased
+          type: string
+          description: Lifecycle status. 'open' means still needed; 'purchased' means someone has bought it. Set by markPurchased.
+          x-enum-varnames:
+            - OPEN
+            - PURCHASED
+          x-enum-descriptions:
+            - open
+            - purchased
+        notes:
+          title: Notes
+          type: string
+          description: 'Optional free-text notes from the adder — brand preference, quantity, etc.'
+        addedById:
+          title: Added by user ID
+          type: string
+          description: UUID of the User who added the item.
+          format: uuid
+        addedAt:
+          title: Added at
+          type: string
+          description: ISO-8601 timestamp recorded when the item was added.
+          format: date-time
+        purchasedById:
+          title: Purchased by user ID
+          type: string
+          description: UUID of the User who marked the item purchased. Null/absent until the item is purchased.
+          format: uuid
+        purchasedAt:
+          title: Purchased at
+          type: string
+          description: ISO-8601 timestamp recorded when the item was marked purchased. Null/absent while open.
+          format: date-time
+        purchasePriceCents:
+          title: Purchase price (cents)
+          type: integer
+          description: Optional purchase price in cents recorded by the buyer. Null/absent if not provided.
+      description: 'Request Body to Update A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    create--Item--request:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Create Body'
+      required:
+        - householdId
+        - name
+        - section
+        - urgency
+        - status
+        - addedById
+        - addedAt
+      type: object
+      properties:
+        _id:
+          title: Item ID
+          type: string
+          description: Server-assigned UUID identifying this item.
+          format: uuid
+        householdId:
+          title: Household ID
+          type: string
+          description: Reference to the Household this item belongs to.
+          format: uuid
+        name:
+          title: Item name
+          type: string
+          description: 'Free-text name of the thing — ''milk'', ''toilet paper (the good kind)'', ''dog food''.'
+        section:
+          title: Section
+          enum:
+            - baby
+            - bakery
+            - beverages
+            - dairy_eggs
+            - frozen
+            - household
+            - meat_seafood
+            - other
+            - pantry
+            - personal_care
+            - pet
+            - produce
+            - snacks
+          type: string
+          description: 'Aisle/section the item belongs to, drawn from a fixed seed list. Drives UI grouping and section emoji rendering.'
+          x-enum-varnames:
+            - BABY
+            - BAKERY
+            - BEVERAGES
+            - DAIRY__EGGS
+            - FROZEN
+            - HOUSEHOLD
+            - MEAT__SEAFOOD
+            - OTHER
+            - PANTRY
+            - PERSONAL__CARE
+            - PET
+            - PRODUCE
+            - SNACKS
+          x-enum-descriptions:
+            - baby
+            - bakery
+            - beverages
+            - dairy_eggs
+            - frozen
+            - household
+            - meat_seafood
+            - other
+            - pantry
+            - personal_care
+            - pet
+            - produce
+            - snacks
+        urgency:
+          title: Urgency
+          enum:
+            - chill
+            - out_of_milk
+            - soon
+          type: string
+          description: 'How badly the household needs this. ''chill'' = nice to have, ''soon'' = grab on the next trip, ''out_of_milk'' = drop everything (the brand-tier crisis).'
+          x-enum-varnames:
+            - CHILL
+            - OUT__OF__MILK
+            - SOON
+          x-enum-descriptions:
+            - chill
+            - out_of_milk
+            - soon
+        status:
+          title: Status
+          enum:
+            - open
+            - purchased
+          type: string
+          description: Lifecycle status. 'open' means still needed; 'purchased' means someone has bought it. Set by markPurchased.
+          x-enum-varnames:
+            - OPEN
+            - PURCHASED
+          x-enum-descriptions:
+            - open
+            - purchased
+        notes:
+          title: Notes
+          type: string
+          description: 'Optional free-text notes from the adder — brand preference, quantity, etc.'
+        addedById:
+          title: Added by user ID
+          type: string
+          description: UUID of the User who added the item.
+          format: uuid
+        addedAt:
+          title: Added at
+          type: string
+          description: ISO-8601 timestamp recorded when the item was added.
+          format: date-time
+        purchasedById:
+          title: Purchased by user ID
+          type: string
+          description: UUID of the User who marked the item purchased. Null/absent until the item is purchased.
+          format: uuid
+        purchasedAt:
+          title: Purchased at
+          type: string
+          description: ISO-8601 timestamp recorded when the item was marked purchased. Null/absent while open.
+          format: date-time
+        purchasePriceCents:
+          title: Purchase price (cents)
+          type: integer
+          description: Optional purchase price in cents recorded by the buyer. Null/absent if not provided.
+      description: 'Request Body to Create A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    Item-indexed-fields:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Filterable Fields'
+      enum:
+        - _id
+        - addedAt
+        - addedById
+        - householdId
+        - purchasedAt
+        - purchasedById
+        - section
+        - status
+      type: string
+      description: 'Filterable fields for A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    Item-fields:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Fields'
+      enum:
+        - _id
+        - addedAt
+        - addedById
+        - householdId
+        - name
+        - notes
+        - purchasedAt
+        - purchasedById
+        - purchasePriceCents
+        - section
+        - status
+        - urgency
+      type: string
+      description: 'Fields for A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    Item-condition:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Item-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: 'Field Condition for A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    filter--Item--request:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Item-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Item-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Item-condition'
+          description: Conditions to be used to filter objects
+      description: 'Request Body to filter A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    filter--Item--response:
+      title: 'A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Item'
+      description: 'Response Body to filter A grocery-list entry in a household. Tracks urgency, section, status, and the users who added and purchased it.'
+    Membership:
+      title: Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+      type: object
+      properties:
+        _id:
+          title: Membership ID
+          type: string
+          description: Server-assigned UUID identifying this membership row.
+          format: uuid
+        householdId:
+          title: Household ID
+          type: string
+          description: Reference to the Household this membership belongs to.
+          format: uuid
+        userId:
+          title: User ID
+          type: string
+          description: Reference to the User who is a member.
+          format: uuid
+        role:
+          title: Role
+          enum:
+            - member
+            - owner
+          type: string
+          description: Role within the household. 'owner' is the user who created it; everyone else joins as 'member'. Authorization is enforced by the backend.
+          x-enum-varnames:
+            - MEMBER
+            - OWNER
+          x-enum-descriptions:
+            - member
+            - owner
+        joinedAt:
+          title: Joined at
+          type: string
+          description: ISO-8601 timestamp recorded when the user joined the household.
+          format: date-time
+      description: Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    update--Membership--request:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Update Body'
+      type: object
+      properties:
+        _id:
+          title: Membership ID
+          type: string
+          description: Server-assigned UUID identifying this membership row.
+          format: uuid
+        householdId:
+          title: Household ID
+          type: string
+          description: Reference to the Household this membership belongs to.
+          format: uuid
+        userId:
+          title: User ID
+          type: string
+          description: Reference to the User who is a member.
+          format: uuid
+        role:
+          title: Role
+          enum:
+            - member
+            - owner
+          type: string
+          description: Role within the household. 'owner' is the user who created it; everyone else joins as 'member'. Authorization is enforced by the backend.
+          x-enum-varnames:
+            - MEMBER
+            - OWNER
+          x-enum-descriptions:
+            - member
+            - owner
+        joinedAt:
+          title: Joined at
+          type: string
+          description: ISO-8601 timestamp recorded when the user joined the household.
+          format: date-time
+      description: Request Body to Update Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    create--Membership--request:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Create Body'
+      required:
+        - householdId
+        - userId
+        - role
+        - joinedAt
+      type: object
+      properties:
+        _id:
+          title: Membership ID
+          type: string
+          description: Server-assigned UUID identifying this membership row.
+          format: uuid
+        householdId:
+          title: Household ID
+          type: string
+          description: Reference to the Household this membership belongs to.
+          format: uuid
+        userId:
+          title: User ID
+          type: string
+          description: Reference to the User who is a member.
+          format: uuid
+        role:
+          title: Role
+          enum:
+            - member
+            - owner
+          type: string
+          description: Role within the household. 'owner' is the user who created it; everyone else joins as 'member'. Authorization is enforced by the backend.
+          x-enum-varnames:
+            - MEMBER
+            - OWNER
+          x-enum-descriptions:
+            - member
+            - owner
+        joinedAt:
+          title: Joined at
+          type: string
+          description: ISO-8601 timestamp recorded when the user joined the household.
+          format: date-time
+      description: Request Body to Create Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    Membership-indexed-fields:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Filterable Fields'
+      enum:
+        - _id
+        - householdId
+        - joinedAt
+        - role
+        - userId
+      type: string
+      description: Filterable fields for Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    Membership-fields:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Fields'
+      enum:
+        - _id
+        - householdId
+        - joinedAt
+        - role
+        - userId
+      type: string
+      description: Fields for Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    Membership-condition:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Membership-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    filter--Membership--request:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Membership-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    filter--Membership--response:
+      title: 'Links a User to a Household with a role and join timestamp. Queried by userId (to list a user''s households) and by householdId (to list a household''s members).: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Membership'
+      description: Response Body to filter Links a User to a Household with a role and join timestamp. Queried by userId (to list a user's households) and by householdId (to list a household's members).
+    Reaction:
+      title: An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+      type: object
+      properties:
+        _id:
+          title: Reaction ID
+          type: string
+          description: Server-assigned UUID identifying this reaction.
+          format: uuid
+        itemId:
+          title: Item ID
+          type: string
+          description: Reference to the Item this reaction is on.
+          format: uuid
+        userId:
+          title: User ID
+          type: string
+          description: Reference to the User who left the reaction.
+          format: uuid
+        emoji:
+          title: Emoji
+          type: string
+          description: Single emoji character or short shortcode for the reaction.
+        createdAt:
+          title: Created at
+          type: string
+          description: ISO-8601 timestamp recorded when the reaction was created.
+          format: date-time
+      description: An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    update--Reaction--request:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Update Body'
+      type: object
+      properties:
+        _id:
+          title: Reaction ID
+          type: string
+          description: Server-assigned UUID identifying this reaction.
+          format: uuid
+        itemId:
+          title: Item ID
+          type: string
+          description: Reference to the Item this reaction is on.
+          format: uuid
+        userId:
+          title: User ID
+          type: string
+          description: Reference to the User who left the reaction.
+          format: uuid
+        emoji:
+          title: Emoji
+          type: string
+          description: Single emoji character or short shortcode for the reaction.
+        createdAt:
+          title: Created at
+          type: string
+          description: ISO-8601 timestamp recorded when the reaction was created.
+          format: date-time
+      description: Request Body to Update An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    create--Reaction--request:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Create Body'
+      required:
+        - itemId
+        - userId
+        - emoji
+        - createdAt
+      type: object
+      properties:
+        _id:
+          title: Reaction ID
+          type: string
+          description: Server-assigned UUID identifying this reaction.
+          format: uuid
+        itemId:
+          title: Item ID
+          type: string
+          description: Reference to the Item this reaction is on.
+          format: uuid
+        userId:
+          title: User ID
+          type: string
+          description: Reference to the User who left the reaction.
+          format: uuid
+        emoji:
+          title: Emoji
+          type: string
+          description: Single emoji character or short shortcode for the reaction.
+        createdAt:
+          title: Created at
+          type: string
+          description: ISO-8601 timestamp recorded when the reaction was created.
+          format: date-time
+      description: Request Body to Create An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    Reaction-indexed-fields:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Filterable Fields'
+      enum:
+        - _id
+        - createdAt
+        - emoji
+        - itemId
+        - userId
+      type: string
+      description: Filterable fields for An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    Reaction-fields:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Fields'
+      enum:
+        - _id
+        - createdAt
+        - emoji
+        - itemId
+        - userId
+      type: string
+      description: Fields for An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    Reaction-condition:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Filter Condition'
+      type: object
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/Reaction-indexed-fields'
+        operator:
+          $ref: '#/components/schemas/api-pi-condition-operator'
+        value:
+          title: Value
+          description: Value to be used in the filter operation
+      description: Field Condition for An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    filter--Reaction--request:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Filter Body'
+      type: object
+      properties:
+        top:
+          title: Top
+          minimum: 0
+          type: integer
+          description: Max Number of objects to return
+        skip:
+          title: Skip
+          minimum: 0
+          type: integer
+          description: Number of objects to skip
+        orderBy:
+          $ref: '#/components/schemas/Reaction-indexed-fields'
+        reverseOrder:
+          title: Reverse Order
+          type: boolean
+          description: Order By in Reverse Order (Descending)
+        view:
+          title: View
+          type: string
+          description: Pre-defined view
+        fields:
+          title: Fields to return
+          type: array
+          items:
+            $ref: '#/components/schemas/Reaction-fields'
+          description: List of fields to return
+        criteria:
+          title: Filter Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/Reaction-condition'
+          description: Conditions to be used to filter objects
+      description: Request Body to filter An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    filter--Reaction--response:
+      title: 'An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.: Filter Response'
+      type: array
+      items:
+        $ref: '#/components/schemas/Reaction'
+      description: Response Body to filter An emoji reaction by a user on a single item. Surfaced in later iterations as side-eye/applause feedback in the crime log.
+    CreateHouseholdInput:
+      title: Input payload for the createHousehold action. Carries the human-readable household name; the owner is the authenticated caller and the invite code is generated server-side.
+      type: object
+      properties:
+        name:
+          title: Household name
+          type: string
+          description: 'Display name for the household — e.g. ''Apt 4B'', ''The Garcias''.'
+      description: Input payload for the createHousehold action. Carries the human-readable household name; the owner is the authenticated caller and the invite code is generated server-side.
+    update--CreateHouseholdInput--request:
+      title: 'Input payload for the createHousehold action. Carries the human-readable household name; the owner is the authenticated caller and the invite code is generated server-side.: Update Body'
+      type: object
+      properties:
+        name:
+          title: Household name
+          type: string
+          description: 'Display name for the household — e.g. ''Apt 4B'', ''The Garcias''.'
+      description: Request Body to Update Input payload for the createHousehold action. Carries the human-readable household name; the owner is the authenticated caller and the invite code is generated server-side.
+    create--CreateHouseholdInput--request:
+      title: 'Input payload for the createHousehold action. Carries the human-readable household name; the owner is the authenticated caller and the invite code is generated server-side.: Create Body'
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Household name
+          type: string
+          description: 'Display name for the household — e.g. ''Apt 4B'', ''The Garcias''.'
+      description: Request Body to Create Input payload for the createHousehold action. Carries the human-readable household name; the owner is the authenticated caller and the invite code is generated server-side.
+    CreateHouseholdOutput:
+      title: 'Result of the createHousehold action. Returns the new household''s identity, generated invite code, and the owner''s freshly-created membership id.'
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the newly-created household.
+          format: uuid
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Generated invite code — share this so other users can join.
+        membershipId:
+          title: Owner membership ID
+          type: string
+          description: UUID of the owner's Membership row created alongside the household.
+          format: uuid
+      description: 'Result of the createHousehold action. Returns the new household''s identity, generated invite code, and the owner''s freshly-created membership id.'
+    update--CreateHouseholdOutput--request:
+      title: 'Result of the createHousehold action. Returns the new household''s identity, generated invite code, and the owner''s freshly-created membership id.: Update Body'
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the newly-created household.
+          format: uuid
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Generated invite code — share this so other users can join.
+        membershipId:
+          title: Owner membership ID
+          type: string
+          description: UUID of the owner's Membership row created alongside the household.
+          format: uuid
+      description: 'Request Body to Update Result of the createHousehold action. Returns the new household''s identity, generated invite code, and the owner''s freshly-created membership id.'
+    create--CreateHouseholdOutput--request:
+      title: 'Result of the createHousehold action. Returns the new household''s identity, generated invite code, and the owner''s freshly-created membership id.: Create Body'
+      required:
+        - householdId
+        - inviteCode
+        - membershipId
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the newly-created household.
+          format: uuid
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Generated invite code — share this so other users can join.
+        membershipId:
+          title: Owner membership ID
+          type: string
+          description: UUID of the owner's Membership row created alongside the household.
+          format: uuid
+      description: 'Request Body to Create Result of the createHousehold action. Returns the new household''s identity, generated invite code, and the owner''s freshly-created membership id.'
+    EscalateStaleItemsInput:
+      title: Input payload for the escalateStaleItems action. Names the household and optionally overrides the staleness threshold.
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the household whose stale items should be escalated.
+          format: uuid
+        staleAfterHours:
+          title: Stale-after threshold (hours)
+          type: integer
+          description: Optional override for how many hours an open item must sit before being eligible for escalation. Defaults to a server-side constant.
+      description: Input payload for the escalateStaleItems action. Names the household and optionally overrides the staleness threshold.
+    update--EscalateStaleItemsInput--request:
+      title: 'Input payload for the escalateStaleItems action. Names the household and optionally overrides the staleness threshold.: Update Body'
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the household whose stale items should be escalated.
+          format: uuid
+        staleAfterHours:
+          title: Stale-after threshold (hours)
+          type: integer
+          description: Optional override for how many hours an open item must sit before being eligible for escalation. Defaults to a server-side constant.
+      description: Request Body to Update Input payload for the escalateStaleItems action. Names the household and optionally overrides the staleness threshold.
+    create--EscalateStaleItemsInput--request:
+      title: 'Input payload for the escalateStaleItems action. Names the household and optionally overrides the staleness threshold.: Create Body'
+      required:
+        - householdId
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the household whose stale items should be escalated.
+          format: uuid
+        staleAfterHours:
+          title: Stale-after threshold (hours)
+          type: integer
+          description: Optional override for how many hours an open item must sit before being eligible for escalation. Defaults to a server-side constant.
+      description: Request Body to Create Input payload for the escalateStaleItems action. Names the household and optionally overrides the staleness threshold.
+    EscalateStaleItemsOutput:
+      title: Result of the escalateStaleItems action. Returns the count of escalated items and their ids.
+      type: object
+      properties:
+        escalatedCount:
+          title: Escalated count
+          type: integer
+          description: Number of items whose urgency was bumped to `out_of_milk`.
+        escalatedItemIds:
+          title: Escalated item IDs
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: UUIDs of the items whose urgency was bumped to `out_of_milk`.
+      description: Result of the escalateStaleItems action. Returns the count of escalated items and their ids.
+    update--EscalateStaleItemsOutput--request:
+      title: 'Result of the escalateStaleItems action. Returns the count of escalated items and their ids.: Update Body'
+      type: object
+      properties:
+        escalatedCount:
+          title: Escalated count
+          type: integer
+          description: Number of items whose urgency was bumped to `out_of_milk`.
+        escalatedItemIds:
+          title: Escalated item IDs
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: UUIDs of the items whose urgency was bumped to `out_of_milk`.
+      description: Request Body to Update Result of the escalateStaleItems action. Returns the count of escalated items and their ids.
+    create--EscalateStaleItemsOutput--request:
+      title: 'Result of the escalateStaleItems action. Returns the count of escalated items and their ids.: Create Body'
+      required:
+        - escalatedCount
+        - escalatedItemIds
+      type: object
+      properties:
+        escalatedCount:
+          title: Escalated count
+          type: integer
+          description: Number of items whose urgency was bumped to `out_of_milk`.
+        escalatedItemIds:
+          title: Escalated item IDs
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: UUIDs of the items whose urgency was bumped to `out_of_milk`.
+      description: Request Body to Create Result of the escalateStaleItems action. Returns the count of escalated items and their ids.
+    JoinHouseholdInput:
+      title: Input payload for the joinHousehold action. Carries the invite code; the joining user is the authenticated caller.
+      type: object
+      properties:
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Invite code shared by the household owner.
+      description: Input payload for the joinHousehold action. Carries the invite code; the joining user is the authenticated caller.
+    update--JoinHouseholdInput--request:
+      title: 'Input payload for the joinHousehold action. Carries the invite code; the joining user is the authenticated caller.: Update Body'
+      type: object
+      properties:
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Invite code shared by the household owner.
+      description: Request Body to Update Input payload for the joinHousehold action. Carries the invite code; the joining user is the authenticated caller.
+    create--JoinHouseholdInput--request:
+      title: 'Input payload for the joinHousehold action. Carries the invite code; the joining user is the authenticated caller.: Create Body'
+      required:
+        - inviteCode
+      type: object
+      properties:
+        inviteCode:
+          title: Invite code
+          type: string
+          description: Invite code shared by the household owner.
+      description: Request Body to Create Input payload for the joinHousehold action. Carries the invite code; the joining user is the authenticated caller.
+    JoinHouseholdOutput:
+      title: Result of the joinHousehold action. Returns the resolved household id and the new membership id for the joining user.
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the household resolved from the invite code.
+          format: uuid
+        membershipId:
+          title: Membership ID
+          type: string
+          description: UUID of the membership row created for the joining user.
+          format: uuid
+      description: Result of the joinHousehold action. Returns the resolved household id and the new membership id for the joining user.
+    update--JoinHouseholdOutput--request:
+      title: 'Result of the joinHousehold action. Returns the resolved household id and the new membership id for the joining user.: Update Body'
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the household resolved from the invite code.
+          format: uuid
+        membershipId:
+          title: Membership ID
+          type: string
+          description: UUID of the membership row created for the joining user.
+          format: uuid
+      description: Request Body to Update Result of the joinHousehold action. Returns the resolved household id and the new membership id for the joining user.
+    create--JoinHouseholdOutput--request:
+      title: 'Result of the joinHousehold action. Returns the resolved household id and the new membership id for the joining user.: Create Body'
+      required:
+        - householdId
+        - membershipId
+      type: object
+      properties:
+        householdId:
+          title: Household ID
+          type: string
+          description: UUID of the household resolved from the invite code.
+          format: uuid
+        membershipId:
+          title: Membership ID
+          type: string
+          description: UUID of the membership row created for the joining user.
+          format: uuid
+      description: Request Body to Create Result of the joinHousehold action. Returns the resolved household id and the new membership id for the joining user.
+    MarkPurchasedInput:
+      title: Input payload for the markPurchased action. Identifies the target item and carries optional price and notes captured at purchase time.
+      type: object
+      properties:
+        id:
+          title: Item ID
+          type: string
+          description: UUID of the Item being marked purchased. Required by the instance-scoped action contract.
+          format: uuid
+        purchasePriceCents:
+          title: Purchase price (cents)
+          type: integer
+          description: Optional purchase price in cents.
+        notes:
+          title: Purchase notes
+          type: string
+          description: 'Optional free-text note recorded at purchase time — store, brand, etc.'
+      description: Input payload for the markPurchased action. Identifies the target item and carries optional price and notes captured at purchase time.
+    update--MarkPurchasedInput--request:
+      title: 'Input payload for the markPurchased action. Identifies the target item and carries optional price and notes captured at purchase time.: Update Body'
+      type: object
+      properties:
+        id:
+          title: Item ID
+          type: string
+          description: UUID of the Item being marked purchased. Required by the instance-scoped action contract.
+          format: uuid
+        purchasePriceCents:
+          title: Purchase price (cents)
+          type: integer
+          description: Optional purchase price in cents.
+        notes:
+          title: Purchase notes
+          type: string
+          description: 'Optional free-text note recorded at purchase time — store, brand, etc.'
+      description: Request Body to Update Input payload for the markPurchased action. Identifies the target item and carries optional price and notes captured at purchase time.
+    create--MarkPurchasedInput--request:
+      title: 'Input payload for the markPurchased action. Identifies the target item and carries optional price and notes captured at purchase time.: Create Body'
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          title: Item ID
+          type: string
+          description: UUID of the Item being marked purchased. Required by the instance-scoped action contract.
+          format: uuid
+        purchasePriceCents:
+          title: Purchase price (cents)
+          type: integer
+          description: Optional purchase price in cents.
+        notes:
+          title: Purchase notes
+          type: string
+          description: 'Optional free-text note recorded at purchase time — store, brand, etc.'
+      description: Request Body to Create Input payload for the markPurchased action. Identifies the target item and carries optional price and notes captured at purchase time.
+    MarkPurchasedOutput:
+      title: Result of the markPurchased action. Returns the updated item identity and key purchase fields so the client can update its cache.
+      type: object
+      properties:
+        itemId:
+          title: Item ID
+          type: string
+          description: UUID of the item that was marked purchased.
+          format: uuid
+        status:
+          title: Status
+          enum:
+            - open
+            - purchased
+          type: string
+          description: Current status — always 'purchased' on success.
+          x-enum-varnames:
+            - OPEN
+            - PURCHASED
+          x-enum-descriptions:
+            - open
+            - purchased
+        purchasedAt:
+          title: Purchased at
+          type: string
+          description: ISO-8601 timestamp recorded when the action ran.
+          format: date-time
+        purchasedById:
+          title: Purchased by user ID
+          type: string
+          description: UUID of the User who marked it purchased.
+          format: uuid
+      description: Result of the markPurchased action. Returns the updated item identity and key purchase fields so the client can update its cache.
+    update--MarkPurchasedOutput--request:
+      title: 'Result of the markPurchased action. Returns the updated item identity and key purchase fields so the client can update its cache.: Update Body'
+      type: object
+      properties:
+        itemId:
+          title: Item ID
+          type: string
+          description: UUID of the item that was marked purchased.
+          format: uuid
+        status:
+          title: Status
+          enum:
+            - open
+            - purchased
+          type: string
+          description: Current status — always 'purchased' on success.
+          x-enum-varnames:
+            - OPEN
+            - PURCHASED
+          x-enum-descriptions:
+            - open
+            - purchased
+        purchasedAt:
+          title: Purchased at
+          type: string
+          description: ISO-8601 timestamp recorded when the action ran.
+          format: date-time
+        purchasedById:
+          title: Purchased by user ID
+          type: string
+          description: UUID of the User who marked it purchased.
+          format: uuid
+      description: Request Body to Update Result of the markPurchased action. Returns the updated item identity and key purchase fields so the client can update its cache.
+    create--MarkPurchasedOutput--request:
+      title: 'Result of the markPurchased action. Returns the updated item identity and key purchase fields so the client can update its cache.: Create Body'
+      required:
+        - itemId
+        - status
+        - purchasedAt
+        - purchasedById
+      type: object
+      properties:
+        itemId:
+          title: Item ID
+          type: string
+          description: UUID of the item that was marked purchased.
+          format: uuid
+        status:
+          title: Status
+          enum:
+            - open
+            - purchased
+          type: string
+          description: Current status — always 'purchased' on success.
+          x-enum-varnames:
+            - OPEN
+            - PURCHASED
+          x-enum-descriptions:
+            - open
+            - purchased
+        purchasedAt:
+          title: Purchased at
+          type: string
+          description: ISO-8601 timestamp recorded when the action ran.
+          format: date-time
+        purchasedById:
+          title: Purchased by user ID
+          type: string
+          description: UUID of the User who marked it purchased.
+          format: uuid
+      description: Request Body to Create Result of the markPurchased action. Returns the updated item identity and key purchase fields so the client can update its cache.
+    EntityIdentity:
+      title: EntityIdentity
+      description: Object Type not found
+    Notification:
+      title: Notification
+      description: Object Type not found
+    FCIOrganizationPPATargets:
+      title: FCIOrganizationPPATargets
+      description: Object Type not found
+    OrganizationPromos:
+      title: OrganizationPromos
+      description: Object Type not found
+    fci.MarketingInfo:
+      title: fci.MarketingInfo
+      description: Object Type not found
+    OrganizationNote:
+      title: OrganizationNote
+      description: Object Type not found
+    Lead:
+      title: Lead
+      description: Object Type not found
+    ZeeTerritory:
+      title: ZeeTerritory
+      description: Object Type not found
+  securitySchemes:
+    ProductionIDP:
+      type: openIdConnect
+      description: OpenID Connect
+      openIdConnectUrl: https://idp.inspirenet.cloud/.well-known/openid-configuration
+    TestIDP:
+      type: openIdConnect
+      description: OpenID Connect
+      openIdConnectUrl: https://idp.fci.cloud/.well-known/openid-configuration
+security:
+  - ProductionIDP:
+      - rest
+  - TestIDP:
+      - rest
+tags:
+  - name: Entity
+    description: Entity
+  - name: User
+    description: User
+  - name: Organization
+    description: Organization
+  - name: Account
+    description: Account
+  - name: UserAdmin
+    description: Admin User
+  - name: UserDesignAssociate
+    description: Design Associate
+  - name: UserManager
+    description: Manager
+  - name: app.oops_no_milk
+    description: app.oops_no_milk Namespace
